@@ -32,13 +32,22 @@ direct.directive('altSlider', function ($http) {
 
             });
 
+            scope.moveScroll = function () {
+                scope.left_side = document.querySelectorAll('.scroll_bar').clientWidth;
+                scope.left_size_bar = scope.current_position * scope.left_side;
+
+                scope.myObj = {
+                    'left': scope.left_size_bar
+                }
+            };
+
             scope.moveRight = function () {
                 if (scope.current_position >= (scope.slides.length - scope.display_elements_count)) {
                     scope.current_position = scope.slides.length - scope.display_elements_count - 1;
                 }
 
                 scope.current_position++;
-                // scope.moveScroll();
+                scope.moveScroll();
             };
 
             scope.moveLeft = function () {
@@ -47,9 +56,8 @@ direct.directive('altSlider', function ($http) {
                 }
 
                 scope.current_position--;
-                // scope.moveScroll();
+                scope.moveScroll();
             };
-
         }
     }
 });
