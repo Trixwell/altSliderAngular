@@ -2,6 +2,9 @@ let direct = angular.module("altSlider", []);
 
 direct.directive('altSlider', function ($http, $interval, $timeout) {
     return {
+        scope: {
+            rawData: '=rawData'
+        },
         templateUrl: 'slider.html',
         link: function (scope, element, attrs) {
             scope.current_position = 0;
@@ -10,8 +13,8 @@ direct.directive('altSlider', function ($http, $interval, $timeout) {
             scope.noscroll = attrs['noScroll'];
             scope.dynamicReload = attrs['dynamicReload'];
             scope.loadData = function (callback) {
-                $http.get('test.json').then(function (response) {
-                    scope.slides = response.data;
+                function act(slides) {
+                    scope.slides = slides;
                     scope.element_width = element[0].clientWidth;
                     scope.new_position = scope.element_width / (scope.slides.length - scope.display_elements_count + 1);
                     scope.myObj = {
@@ -21,13 +24,18 @@ direct.directive('altSlider', function ($http, $interval, $timeout) {
                     scope.updateScreen();
 
                     if (callback) {
-                        callback(response);
+                        callback(slides);
                     }
-                });
+                }
+
+                if (scope.rawData) {
+                    act(scope.rawData);
+                } else {
+                    $http.get('test.json').then(function (response) {
+                        act(response.data);
+                    });
+                }
             };
-
-
-            scope.loadData();
 
             scope.updateScreen = function () {
                 scope.displaySlides = scope.slides.slice(scope.current_position, scope.current_position + scope.display_elements_count);
@@ -82,13 +90,15 @@ direct.directive('altSlider', function ($http, $interval, $timeout) {
             }
 
             if (scope.dynamicReload) {
-                $timeout (function reload() {
-                    scope.loadData( function () {
+                $timeout(function reload() {
+                    scope.loadData(function () {
                         scope.updateScreen();
-                        $timeout (reload, scope.dynamicReload);
+                        $timeout(reload, scope.dynamicReload);
                     })
                 }, scope.dynamicReload);
             }
+
+            scope.loadData();
 
         }
     }
