@@ -1,11 +1,13 @@
 let direct = angular.module("altSlider", []);
 
-direct.directive('altSlider', function ($http) {
+direct.directive('altSlider', function ($http, $interval) {
     return {
         templateUrl: 'slider.html',
         link: function (scope, element, attrs) {
             scope.current_position = 0;
             scope.display_elements_count = attrs['slides'];
+            scope.autoscroll = attrs['scroll'];
+            scope.noscroll = attrs['noScroll'];
             scope.loadData = function () {
                 $http.get('test.json').then(function (response) {
                     scope.slides = response.data;
@@ -60,6 +62,20 @@ direct.directive('altSlider', function ($http) {
                 scope.current_position--;
                 scope.moveScroll(is_move);
             };
+
+            if (scope.autoscroll === 'true') {
+                $interval(function () {
+                    scope.moveRight();
+                }, 1000);
+            }
+
+            if (scope.noscroll === 'true') {
+                scope.noScroll = {
+                    'display': 'none'
+                }
+            }
+
+            console.log(scope.noscroll);
         }
     }
 });
