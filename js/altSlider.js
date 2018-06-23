@@ -41,13 +41,14 @@ direct.directive('altSlider', function ($http, $interval, $timeout) {
                         scope.verticalBlock = {
                             'display': 'flex',
                             'flex-direction': 'column',
+                            'justify-content': 'space-between',
                             'width': '200px',
                             'overflow-y': 'hidden'
                         };
 
-                        scope.verticalWrapper = {
+                        scope.sliderWrapper = {
                             'width': '5px',
-                            'height': '805px',
+                            'height': scope.element_height + 'px',
                             'transition': 'inherit'
 
                         };
@@ -60,7 +61,11 @@ direct.directive('altSlider', function ($http, $interval, $timeout) {
                             'width': scope.new_position + 'px'
                         };
 
+                        scope.sliderWrapper = {
+                            'width': scope.element_width + 'px'
+                        }
                     }
+
 
                     scope.updateScreen();
 

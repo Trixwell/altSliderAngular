@@ -7,7 +7,6 @@
 
 .block {
     overflow-x: hidden;
-    width: 630px;
     display: flex;
 }
 
@@ -67,5 +66,6 @@
 
 .alt-slider {
     display: flex;
-    height: 805px;
+    height: 560px;
+    width: 650px;
 }
