@@ -65,4 +65,7 @@
     transition: 1s;
 }
 
-
+.alt-slider {
+    display: flex;
+    height: 805px;
+}

@@ -3,23 +3,64 @@ let direct = angular.module("altSlider", []);
 direct.directive('altSlider', function ($http, $interval, $timeout) {
     return {
         scope: {
-            rawData: '=rawData'
+            rawData: '=rawData',
+            isVertical: '=isVertical',
+            dynamicReload: '=dynamicReload',
+            noscroll: '=noScroll',
+            autoscroll: '=scroll',
+            display_elements_count: '=slides'
         },
         templateUrl: 'slider.html',
         link: function (scope, element, attrs) {
             scope.current_position = 0;
-            scope.display_elements_count = attrs['slides'];
-            scope.autoscroll = attrs['scroll'];
-            scope.noscroll = attrs['noScroll'];
-            scope.dynamicReload = attrs['dynamicReload'];
+
             scope.loadData = function (callback) {
                 function act(slides) {
                     scope.slides = slides;
-                    scope.element_width = element[0].clientWidth;
-                    scope.new_position = scope.element_width / (scope.slides.length - scope.display_elements_count + 1);
-                    scope.myObj = {
-                        'width': scope.new_position + 'px'
-                    };
+                    if (scope.isVertical) {
+
+                        scope.element_height = element[0].clientHeight;
+                        scope.new_position = scope.element_height / (scope.slides.length - scope.display_elements_count + 1);
+                        scope.myObj = {
+                            'height': scope.new_position + 'px'
+                        };
+
+                        scope.verticalBody = {
+                            'overflowY': 'hidden'
+                        };
+
+                        scope.visibleVertical = {
+                            'margin-top': 'inherit'
+                        };
+
+                        scope.verticalSlider = {
+                            'display': 'flex',
+                            'flex-direction': 'row'
+                        };
+
+                        scope.verticalBlock = {
+                            'display': 'flex',
+                            'flex-direction': 'column',
+                            'width': '200px',
+                            'overflow-y': 'hidden'
+                        };
+
+                        scope.verticalWrapper = {
+                            'width': '5px',
+                            'height': '805px',
+                            'transition': 'inherit'
+
+                        };
+
+                    } else {
+                        scope.element_width = element[0].clientWidth;
+                        scope.new_position = scope.element_width / (scope.slides.length - scope.display_elements_count + 1);
+
+                        scope.myObj = {
+                            'width': scope.new_position + 'px'
+                        };
+
+                    }
 
                     scope.updateScreen();
 
@@ -53,11 +94,19 @@ direct.directive('altSlider', function ($http, $interval, $timeout) {
 
             });
 
-            scope.moveScroll = function () {
-                scope.left_size_bar = scope.current_position * scope.new_position;
-                scope.myObj.left = scope.left_size_bar + 'px';
-            };
 
+            if (scope.isVertical) {
+                scope.moveScroll = function () {
+                    scope.left_size_bar = scope.current_position * scope.new_position;
+                    scope.myObj.top = scope.left_size_bar + 'px';
+                };
+            } else {
+
+                scope.moveScroll = function () {
+                    scope.left_size_bar = scope.current_position * scope.new_position;
+                    scope.myObj.left = scope.left_size_bar + 'px';
+                };
+            }
             scope.moveRight = function (is_move) {
                 if (scope.current_position >= (scope.slides.length - scope.display_elements_count)) {
                     scope.current_position = scope.slides.length - scope.display_elements_count - 1;
@@ -77,13 +126,13 @@ direct.directive('altSlider', function ($http, $interval, $timeout) {
                 scope.moveScroll(is_move);
             };
 
-            if (scope.autoscroll === 'true') {
+            if (scope.autoscroll) {
                 $interval(function () {
                     scope.moveRight();
                 }, 1000);
             }
 
-            if (scope.noscroll === 'true') {
+            if (scope.noscroll) {
                 scope.noScroll = {
                     'display': 'none'
                 }

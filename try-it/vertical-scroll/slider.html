@@ -1,0 +1,14 @@
+<div ng-style="verticalSlider">
+    <div class="block" ng-style="verticalBlock">
+        <div class="slider-block" ng-repeat="slide in displaySlides">
+            <a class="item" href="{{slide.src}}">
+                <img class="slide-images" src="{{slide.img_src}}" alt="slide">
+                <span>{{slide.create_time}}</span>
+                <p class="slider-title">{{slide.title}}</p>
+            </a>
+        </div>
+    </div>
+    <div class="scroll_wrapper" ng-style="verticalWrapper">
+        <div class="scroll_bar" ng-style="myObj"></div>
+    </div>
+</div>
