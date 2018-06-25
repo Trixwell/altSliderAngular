@@ -13,7 +13,7 @@ AltSliderAngularJS is a customizable jQuery slider plugin. Features include:
 ## Usage
 
 
-At first don’t forget to use AngularJS CDN and mention it in your index.html file
+At first don’t forget to use AngularJS CDN and mention it in your index.html file:
 
 ```html
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.10/angular.min.js"></script>
