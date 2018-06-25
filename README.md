@@ -46,7 +46,7 @@ Also mention it in your index.js file:
 });
 ```
 
-For dynamic reload add **dynamic-reload="3000"** property to <alt-slider> in your html file where it's attribute is milliseconds trough which your slider data will reload.
+For dynamic reload add **dynamic-reload="3000"** property to 'alt-slider' in your html file where it's attribute is milliseconds trough which your slider data will reload.
 
 ```html
     <div class="visible" ng-controller="sliderCtrl">
