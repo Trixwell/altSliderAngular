@@ -65,3 +65,33 @@ For turning of scrollbar add **no-scroll="true** property to 'alt-slider' in you
         <alt-slider class="alt-slider" slides="3"  no-scroll="true"></alt-slider>
     </div>
 ```
+
+For handling data without using AJAX requests, add to 'alt-slider' in your html file **raw-data="rawData** property. 
+```html
+    <div class="visible" ng-controller="sliderCtrl">
+        <alt-slider class="alt-slider" slides="3" raw-data="rawData"></alt-slider>
+    </div>
+```
+Then you may use it in JSON format in your js file. For example: 
+```js
+let app = angular.module("app", ['altSlider']);
+
+app.controller("sliderCtrl", function($scope, $http) {
+    $scope.rawData = [
+        {
+            "title": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A animi at corporis dignissimos error, facilis ipsum iste iusto, labore minima, nihil obcaecati placeat possimus quasi qui rem saepe soluta voluptates.",
+            "body": "Test body 1",
+            "create_time": "2018-01-01 00:00:01",
+            "img_src": "http://s5.uploads.ru/t/0hYTP.jpg",
+            "src": "https://google.com"
+        },
+        {
+            "title": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A animi at corporis dignissimos error, facilis ipsum iste iusto, labore minima, nihil obcaecati placeat possimus quasi qui rem saepe soluta voluptates.",
+            "body": "Test body 2",
+            "create_time": "2018-02-02 00:23:01",
+            "img_src": "http://sa.uploads.ru/t/xqseC.jpg",
+            "src": "https://google.com"
+        }
+      ]
+     });
+```
