@@ -92,6 +92,6 @@ app.controller("sliderCtrl", function($scope, $http) {
             "img_src": "http://sa.uploads.ru/t/xqseC.jpg",
             "src": "https://google.com"
         }
-      ]
+       ]
      });
 ```
