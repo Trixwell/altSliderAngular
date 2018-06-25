@@ -59,3 +59,9 @@ For auto scroll add **scroll: true** property to 'alt-slider' in your html file.
         <alt-slider class="alt-slider" slides="3" scroll="true"></alt-slider>
     </div>
 ```
+For turning of scrollbar add **no-scroll="true** property to 'alt-slider' in your html file where it's boolean attribute (true) means that you don't want to use scrollbar. 
+```html
+    <div class="visible" ng-controller="sliderCtrl">
+        <alt-slider class="alt-slider" slides="3"  no-scroll="true"></alt-slider>
+    </div>
+```
