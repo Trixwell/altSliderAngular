@@ -13,8 +13,36 @@ AltSliderAngularJS is a customizable jQuery slider plugin. Features include:
 ## Usage
 
 
-At first don’t forget to use AngularJS CDN and mention it in your index.html file:
+At first don’t forget to use AngularJS CDN and mention it in your index.html file. Head of it should look this way:
 
 ```html
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.10/angular.min.js"></script>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Default</title>
+    <link rel="stylesheet" href="../../css/altSlider.css">
+    <link rel="stylesheet" href="default.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.10/angular.min.js"></script>
+    <script src="index.js"></script>
+    <script src="../../js/altSlider.js"></script>
+</head>
 ```
+
+Then pay your attention to default variant of slider.
+
+Add controller and slider itself in your index.html file:
+
+```html
+  <div class="visible" ng-controller="sliderCtrl">
+      <alt-slider class="alt-slider" slides="3" ></alt-slider>
+  </div>
+```
+Also mention it in your index.js file:
+```js
+  let app = angular.module("app", ['altSlider']);
+
+  app.controller("sliderCtrl", function($scope, $http) {
+});
+```
+
