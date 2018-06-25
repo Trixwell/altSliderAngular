@@ -96,7 +96,7 @@ app.controller("sliderCtrl", function($scope, $http) {
      });
      
 ```
-For turning on **customizable vertical scrollbar mode**  delete from div width ng-controller class "visible" and add ng-style="visibleVertical". Add to alt-slider in your html file JS file **is-vertical="true**. Add your CSS file for stylization. **_All features for horizontal scroll also work for vertical._**
+For turning on **customizable vertical scrollbar mode**  delete from div with ng-controller class "visible" and add ng-style="visibleVertical". Add to alt-slider in your html file JS file **is-vertical="true"**. Add your CSS file for stylization. **_All features for horizontal scroll also work for vertical._**
 
 ```html
     <div ng-controller="sliderCtrl" ng-style="visibleVertical">
