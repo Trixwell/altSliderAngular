@@ -53,3 +53,9 @@ For dynamic reload add **dynamic-reload="3000"** property to 'alt-slider' in you
         <alt-slider class="alt-slider" slides="3" dynamic-reload="3000"></alt-slider>
     </div>
 ```
+For auto scroll add **scroll: true** property to 'alt-slider' in your html file.
+```html
+    <div class="visible" ng-controller="sliderCtrl">
+        <alt-slider class="alt-slider" slides="3" scroll="true"></alt-slider>
+    </div>
+```
