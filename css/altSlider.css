@@ -54,7 +54,6 @@
 
 .scroll_wrapper {
     background: rgba(0,0,0, 0.3);
-    transition: 1s;
     width: 630px;
     height: 5px;
 }
@@ -66,6 +65,7 @@
 
 .alt-slider {
     display: flex;
-    height: 560px;
+    flex-direction: column;
+    align-items: center;
     width: 650px;
 }

@@ -63,6 +63,12 @@ direct.directive('altSlider', function ($http, $interval, $timeout) {
 
                         scope.sliderWrapper = {
                             'width': scope.element_width + 'px'
+                        };
+
+                        if (scope.noscroll) {
+                            scope.sliderWrapper = {
+                                'display': 'none'
+                            }
                         }
                     }
 
@@ -137,11 +143,6 @@ direct.directive('altSlider', function ($http, $interval, $timeout) {
                 }, 1000);
             }
 
-            if (scope.noscroll) {
-                scope.noScroll = {
-                    'display': 'none'
-                }
-            }
 
             if (scope.dynamicReload) {
                 $timeout(function reload() {

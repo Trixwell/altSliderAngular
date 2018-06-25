@@ -1,3 +1,14 @@
 body {
     overflow-y: hidden;
 }
+
+.alt-slider {
+    width: 0;
+    flex-direction: row;
+    height: 540px;
+}
+
+.scroll_wrapper {
+    width: 5px;
+    height: auto !important;
+}
