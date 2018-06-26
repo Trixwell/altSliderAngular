@@ -70,7 +70,7 @@ For turning of scrollbar add **no-scroll="true** property to 'alt-slider' in you
 ```
 ![](https://github.com/Trixwell/altSlider/blob/master/gif/no-scroll.gif)
 
-For handling data without using AJAX requests, add to 'alt-slider' in your html file **raw-data="rawData** property. 
+For handling data without using AJAX requests, add to 'alt-slider' in your html file **raw-data="rawData"** property. 
 ```html
     <div class="visible" ng-controller="sliderCtrl">
         <alt-slider class="alt-slider" slides="3" raw-data="rawData"></alt-slider>
