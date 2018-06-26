@@ -107,3 +107,4 @@ For turning on **customizable vertical scrollbar mode**  delete from div with ng
         <alt-slider class="alt-slider" slides="2" is-vertical="true"></alt-slider>
     </div>
 ```
+# ![](https://github.com/Trixwell/altSliderAngular/blob/master/gif/second.gif) 
