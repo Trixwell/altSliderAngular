@@ -45,6 +45,7 @@ Also mention it in your index.js file:
   app.controller("sliderCtrl", function($scope, $http) {
 });
 ```
+# ![](https://github.com/Trixwell/altSliderAngular/blob/master/gif/third.gif) 
 
 For dynamic reload add **dynamic-reload="3000"** property to 'alt-slider' in your html file where it's attribute is milliseconds trough which your slider data will reload.
 
