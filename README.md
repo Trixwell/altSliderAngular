@@ -107,4 +107,31 @@ For turning on **customizable vertical scrollbar mode**  delete from div with ng
         <alt-slider class="alt-slider" slides="2" is-vertical="true"></alt-slider>
     </div>
 ```
+
+## Rawdata format and server responce data format
+
+Format of data for url file must include array of data with next properties, which are optional.
+
+```js
+let app = angular.module("app", ['altSlider']);
+
+app.controller("sliderCtrl", function($scope, $http) {
+    $scope.rawData = [
+        {
+            "title": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A animi at corporis dignissimos error, facilis ipsum iste iusto, labore minima, nihil obcaecati placeat possimus quasi qui rem saepe soluta voluptates.",
+            "body": "Test body 1",
+            "create_time": "2018-01-01 00:00:01",
+            "img_src": "http://s5.uploads.ru/t/0hYTP.jpg",
+            "src": "https://google.com"
+        }
+       ]
+    });
+```
+
+* "body" is a header.
+* "title" is a paragraph with short description.
+* "create_time" is a date with info when your paragraph was posted.
+* "img_src" is a link to image.
+* "src" is an external link.
+
 # ![](https://github.com/Trixwell/altSliderAngular/blob/master/gif/second.gif) 
