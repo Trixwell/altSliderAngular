@@ -135,3 +135,8 @@ app.controller("sliderCtrl", function($scope, $http) {
 * "src" is an external link.
 
 # ![](https://github.com/Trixwell/altSliderAngular/blob/master/gif/second.gif) 
+
+## License
+
+GPL 3
+https://opensource.org/licenses/GPL-3.0
