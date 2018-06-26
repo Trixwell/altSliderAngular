@@ -1,4 +1,4 @@
-# ![](https://github.com/Trixwell/altSliderAngular/blob/master/gif/dsf.gif) 
+# ![](https://github.com/Trixwell/altSliderAngular/blob/master/gif/slider.gif) 
 
 AltSliderAngularJS is a customizable jQuery slider plugin. Features include:
 
