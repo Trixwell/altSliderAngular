@@ -108,7 +108,7 @@ For turning on **customizable vertical scrollbar mode**  delete from div with ng
     </div>
 ```
 
-## Rawdata format and server responce data format
+## Rawdata format and server response data format
 
 Format of data for url file must include array of data with next properties, which are optional.
 
